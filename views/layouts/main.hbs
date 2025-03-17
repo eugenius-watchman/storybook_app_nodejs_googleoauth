@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" 
     referrerpolicy="no-referrer" />
+    
 
     <link rel="stylesheet" href="/css/style.css">
 
@@ -19,6 +20,7 @@
 <body>
     <!-- inserting partials -->
     {{> _header}}
+    {{> _add_btn}}
 
     <!-- put container class around body -->
      <div class="container">
@@ -31,9 +33,24 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- JavaScript WYSIWYG text editor -->
+    {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.25.0/ckeditor.js" 
+    integrity="sha512-BmPSKm+8FYKMlrIpuWJqTRPMPDI+2Ea55rS3g4EVP+Grh2GaP1e9MFjUNOLPasnOfq6puWIlqmAFllMxuE52Gg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.14.1/ckeditor.js"
+        integrity="sha256-bEIQpI72w9NJuIVhTLFUF2/8uxl0u5800r8ddViuv+o=" 
+        crossorigin="anonymous"></script>
+    
     <!-- enabling dropdown in navbar / materialize -->
     <script>
         M.Sidenav.init(document.querySelector('.sidenav'))
+        M.FormSelect.init(document.querySelector('#status'))
+
+        CKEDITOR.replace('body', {
+            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+        })
+
     </script>
 
 </body>

@@ -25,6 +25,12 @@ connectDB()
 // initialize app with express 
 const app = express()
 
+
+//body parser
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+
+
 // *** middlewares *** 
 // running in dev mode ... morgan 
 if (process.env.NODE_ENV === 'development') {
@@ -65,6 +71,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 // routes 
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
+app.use('/stories', require('./routes/stories'))
+
 
 
 
